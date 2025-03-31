@@ -1,6 +1,6 @@
 {
   "name": "@sumomo015/eslint-config",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.1-alpha.1",
   "type": "module",
   "packageManager": "pnpm@10.7.0",
   "author": "sumomo015",
