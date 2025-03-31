@@ -1,0 +1,9 @@
+dist
+node_modules
+coverage
+
+# Misc
+.DS_Store
+.fleet
+.idea
+.vscode

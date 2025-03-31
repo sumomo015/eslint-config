@@ -1,0 +1,6 @@
+**/*.js
+**/*.ts
+**/*.vue
+pnpm-lock.yaml
+coverage
+dist
