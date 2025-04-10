@@ -6,7 +6,7 @@ import type { Config } from '../types'
 
 function getStylisticConfigs(): Config[] {
   return [
-    cleanConfig(eslintStylistic.configs.customize({ jsx: false })),
+    cleanConfig(eslintStylistic.configs.recommended),
   ]
 }
 
