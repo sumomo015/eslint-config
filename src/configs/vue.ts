@@ -22,7 +22,6 @@ function getVueConfigs(): Config[] {
         'vue/no-root-v-if': 'warn',
         'vue/no-setup-props-reactivity-loss': 'warn',
         'vue/no-template-target-blank': 'warn',
-        'vue/no-undef-components': 'warn',
         'vue/no-use-v-else-with-v-for': 'warn',
         'vue/no-useless-mustaches': 'warn',
         'vue/no-useless-v-bind': 'warn',
