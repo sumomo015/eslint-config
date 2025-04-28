@@ -1,6 +1,8 @@
 import { defineConfig } from 'vitest/config'
 
-export default defineConfig({
+import type { UserConfig } from 'vite'
+
+const config: UserConfig = defineConfig({
   test: {
     coverage: {
       provider: 'v8',
@@ -9,3 +11,5 @@ export default defineConfig({
     environment: 'node',
   },
 })
+
+export default config
