@@ -7,6 +7,6 @@ const config: UserConfig = defineConfig({
   format: 'esm',
   clean: true,
   dts: true,
-})
+}) as UserConfig
 
 export default config
