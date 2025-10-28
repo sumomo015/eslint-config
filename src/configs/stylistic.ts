@@ -6,7 +6,10 @@ import type { Config } from '../types'
 
 function getStylisticConfigs(): Config[] {
   return [
-    cleanConfig(eslintStylistic.configs.recommended),
+    cleanConfig({
+      ...eslintStylistic.configs.recommended,
+      name: 'stylistic/recommended',
+    }),
   ]
 }
 
