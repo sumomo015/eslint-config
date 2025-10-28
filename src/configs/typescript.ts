@@ -9,6 +9,7 @@ function getTypescriptConfigs(): Config[] {
     ...(eslintTS.configs.strictTypeChecked as Config[]),
     ...(eslintTS.configs.stylisticTypeChecked as Config[]),
     {
+      name: 'typescript-eslint/overrides',
       rules: {
         '@typescript-eslint/consistent-type-exports': 'warn',
         '@typescript-eslint/consistent-type-imports': 'warn',

@@ -9,6 +9,7 @@ interface ImportConfigsOptions {
 function getImportConfigs(options?: ImportConfigsOptions): Config[] {
   return [
     {
+      name: 'import-x/recommended',
       plugins: eslintImport.flatConfigs.recommended.plugins as Plugins,
       rules: {
         'import-x/no-empty-named-blocks': 'warn',

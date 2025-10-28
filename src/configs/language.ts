@@ -22,20 +22,25 @@ function getLanguageConfigs(options: LanguageConfigsOptions): Config[] {
 function _getFilesConfig(options: LanguageConfigsOptions): Config {
   const { mode } = options
   return {
+    name: 'global/files',
     files: mode === 'TS_ONLY' ? ['**/*.ts'] : ['**/*.ts', '**/*.vue'],
   }
 }
 
 function _getIgnoresConfig(ignores: string[]): Config {
   return {
+    name: 'global/ignores',
     ignores,
   }
 }
 
 function _getLanguageOptionsConfig(options: LanguageConfigsOptions): Config {
+  const name = 'global/language-options'
+
   const { mode, tsconfigRootDir } = options
   if (mode === 'TS_ONLY') {
     return {
+      name,
       languageOptions: {
         parser: eslintParserTS,
         sourceType: 'module',
@@ -48,6 +53,7 @@ function _getLanguageOptionsConfig(options: LanguageConfigsOptions): Config {
   }
   else {
     return {
+      name,
       languageOptions: {
         parser: eslintParserVue,
         parserOptions: {
