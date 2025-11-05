@@ -30,7 +30,16 @@ jobs:
     needs: [release]
     steps:
       - uses: actions/checkout@v5
-      - run: npx jsr publish
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24.11.0
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Publish to jsr
+        run: npx jsr publish
 
   npm-publish:
     runs-on: ubuntu-latest
