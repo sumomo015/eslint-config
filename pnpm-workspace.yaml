@@ -1,3 +1,9 @@
-onlyBuiltDependencies:
-  - esbuild
-  - unrs-resolver
+strictDepBuilds: true
+blockExoticSubdeps: true
+trustPolicy: no-downgrade
+
+trustPolicyExclude:
+  - ts-api-utils@2.3.0
+allowBuilds:
+  esbuild: true
+  unrs-resolver: true

@@ -2,7 +2,7 @@
   "name": "@sumomo015/eslint-config",
   "version": "1.2.5",
   "type": "module",
-  "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd",
+  "packageManager": "pnpm@10.27.0+sha512.72d699da16b1179c14ba9e64dc71c9a40988cbdc65c264cb0e489db7de917f20dcf4d64d8723625f2969ba52d4b7e2a1170682d9ac2a5dcaeaab732b7e16f04a",
   "author": "sumomo015",
   "description": "Sumomo015's ESLint config",
   "license": "GPL-3.0-only",
@@ -23,7 +23,6 @@
     "dist"
   ],
   "scripts": {
-    "ncu": "ncu -ui",
     "type-check": "tsc --noEmit",
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "eslint . --fix",
@@ -38,29 +37,28 @@
     "singleQuote": true
   },
   "devDependencies": {
-    "@types/node": "^24.10.0",
-    "@vitest/coverage-v8": "^4.0.7",
-    "@vitest/ui": "^4.0.7",
-    "eslint": "^9.39.1",
+    "@types/node": "^24.10.4",
+    "@vitest/coverage-v8": "^4.0.16",
+    "@vitest/ui": "^4.0.16",
+    "eslint": "^9.39.2",
     "jiti": "^2.6.1",
-    "npm-check-updates": "^19.1.2",
-    "prettier": "^3.6.2",
-    "tsdown": "^0.16.0",
+    "prettier": "^3.7.4",
+    "tsdown": "0.18.4",
     "typescript": "^5.9.3",
-    "vite": "^7.2.0",
-    "vitest": "^4.0.7"
+    "vite": "^7.3.0",
+    "vitest": "^4.0.16"
   },
   "peerDependencies": {
-    "eslint": "^9.23.0",
-    "typescript": "^5.8.2"
+    "eslint": "^9.0.0",
+    "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@eslint/js": "^9.39.1",
-    "@stylistic/eslint-plugin": "^5.5.0",
-    "@typescript-eslint/parser": "^8.46.3",
+    "@eslint/js": "^9.39.2",
+    "@stylistic/eslint-plugin": "^5.6.1",
+    "@typescript-eslint/parser": "^8.51.0",
     "eslint-plugin-import-x": "^4.16.1",
-    "eslint-plugin-vue": "^10.5.1",
-    "typescript-eslint": "^8.46.3",
+    "eslint-plugin-vue": "^10.6.2",
+    "typescript-eslint": "^8.51.0",
     "vue-eslint-parser": "^10.2.0"
   }
 }
