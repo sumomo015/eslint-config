@@ -12,15 +12,20 @@ sumomo015のESLint設定パッケージです。TypeScriptおよびVue.jsプロ�
 
 ## インストール
 
-### pnpm (npm)
+npm/pnpm/yarn等のパッケージマネージャーでインストールできます:
 
 ```bash
+# pnpm
 pnpm add -D @sumomo015/eslint-config eslint typescript
+
+# npm
+npm install -D @sumomo015/eslint-config eslint typescript
+
+# yarn
+yarn add -D @sumomo015/eslint-config eslint typescript
 ```
 
-### pnpm (jsr)
-
-または
+JSRレジストリからのインストールも可能です:
 
 ```bash
 pnpm add -D jsr:@sumomo015/eslint-config eslint typescript
@@ -107,14 +112,18 @@ export default defineESLintConfig(
 - **Import**: import文の整理とソート
 - **Stylistic**: コードスタイルとフォーマットのルール
 
+## 必要な環境
+
+- **Node.js**: >=22.0.0
+
 ## 依存関係
 
 ### Peer Dependencies
 
-- `eslint` ^9.23.0
-- `typescript` ^5.8.2
+- `eslint` ^9.0.0
+- `typescript` ^5.0.0
 
-### 主要な依存パッケージ
+### 主要な依存パッケージ 
 
 - `@eslint/js`
 - `@stylistic/eslint-plugin`
