@@ -123,7 +123,7 @@ export default defineESLintConfig(
 - `eslint` ^9.0.0
 - `typescript` ^5.0.0
 
-### 主要な依存パッケージ 
+### 主要な依存パッケージ
 
 - `@eslint/js`
 - `@stylistic/eslint-plugin`
