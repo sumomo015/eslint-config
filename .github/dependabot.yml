@@ -16,3 +16,4 @@ updates:
       npm-dependencies:
         patterns:
           - '*'
+    versioning-strategy: increase
