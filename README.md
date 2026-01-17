@@ -108,15 +108,15 @@ export default defineESLintConfig({
 
 ### Options
 
-| プロパティ        | 型                                    | 必須 | 説明                                                               |
-| ----------------- | ------------------------------------- | ---- | ------------------------------------------------------------------ |
-| `feature`         | `object`                              | ❌   | 機能ごとの有効化設定                                               |
-| `feature.vue`     | `{ enabled: boolean, nuxt: boolean }` | ❌   | Vue.js/Nuxtサポート設定                                            |
-| `feature.react`   | `{ enabled: boolean, next: boolean }` | ❌   | React/Next.jsサポート設定                                          |
-| `feature.vitest`  | `{ enabled: boolean }`                | ❌   | Vitestテストフレームワークサポート設定                             |
-| `tsconfigRootDir` | `string`                              | ✅   | `tsconfig.json`があるルートディレクトリのパス                      |
-| `internalRegex`   | `string`                              | ❌   | 内部パッケージを識別するための正規表現パターン(import順序の制御用) |
-| `ignores`         | `string[]`                            | ❌   | ESLintで無視するファイル/ディレクトリのパターン                    |
+| プロパティ        | 型                                     | 必須 | 説明                                                               |
+| ----------------- | -------------------------------------- | ---- | ------------------------------------------------------------------ |
+| `feature`         | `object`                               | ❌   | 機能ごとの有効化設定                                               |
+| `feature.vue`     | `{ enabled: boolean, nuxt?: boolean }` | ❌   | Vue.js/Nuxtサポート設定                                            |
+| `feature.react`   | `{ enabled: boolean, next?: boolean }` | ❌   | React/Next.jsサポート設定                                          |
+| `feature.vitest`  | `{ enabled: boolean }`                 | ❌   | Vitestテストフレームワークサポート設定                             |
+| `tsconfigRootDir` | `string`                               | ✅   | `tsconfig.json`があるルートディレクトリのパス                      |
+| `internalRegex`   | `string`                               | ❌   | 内部パッケージを識別するための正規表現パターン(import順序の制御用) |
+| `ignores`         | `string[]`                             | ❌   | ESLintで無視するファイル/ディレクトリのパターン                    |
 
 ### 例: カスタムignoresとinternalRegexを使用
 

@@ -26,7 +26,7 @@ interface Options {
       /** Vue.js設定を有効にするか */
       enabled: boolean
       /** Nuxt.jsを使用するか */
-      nuxt: boolean
+      nuxt?: boolean
     }
     /**
      * React関連の設定
@@ -35,7 +35,7 @@ interface Options {
       /** React設定を有効にするか */
       enabled: boolean
       /** Next.jsを使用するか */
-      next: boolean
+      next?: boolean
     }
     /**
      * Vitest関連の設定
