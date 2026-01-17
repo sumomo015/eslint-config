@@ -7,8 +7,8 @@ import type { Options, RawConfig } from '../types'
 const reactConfigs: RawConfig[] = [
   eslintReact.configs['strict-type-checked'],
   {
-    name: 'react-hooks',
     ...eslintReactHooks.configs.flat.recommended,
+    name: 'react-hooks',
   },
 ]
 
