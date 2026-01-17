@@ -2,12 +2,12 @@ import eslintStylistic from '@stylistic/eslint-plugin'
 
 import { cleanConfig } from '../utils/clean'
 
-import type { Config } from '../types'
+import type { RawConfig } from '../types'
 
-function getStylisticConfigs(): Config[] {
+function getStylisticConfigs(): RawConfig[] {
   return [
     cleanConfig({
-      ...eslintStylistic.configs.recommended,
+      ...eslintStylistic.configs.customize({ severity: 'warn' }),
       name: 'stylistic/recommended',
     }),
   ]

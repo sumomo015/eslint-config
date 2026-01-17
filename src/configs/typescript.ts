@@ -2,12 +2,12 @@ import eslintTS from 'typescript-eslint'
 
 import { cleanConfigs } from '../utils/clean'
 
-import type { Config } from '../types'
+import type { RawConfig } from '../types'
 
-function getTypescriptConfigs(): Config[] {
+function getTypescriptConfigs(): RawConfig[] {
   return cleanConfigs([
-    ...(eslintTS.configs.strictTypeChecked as Config[]),
-    ...(eslintTS.configs.stylisticTypeChecked as Config[]),
+    ...(eslintTS.configs.strictTypeChecked as RawConfig[]),
+    ...(eslintTS.configs.stylisticTypeChecked as RawConfig[]),
     {
       name: 'typescript-eslint/overrides',
       rules: {

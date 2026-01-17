@@ -4,11 +4,14 @@ sumomo015のESLint設定パッケージです。TypeScriptおよびVue.jsプロ�
 
 ## 特徴
 
-- 📦 TypeScript専用モードとVue + TypeScriptモードに対応
-- 🎨 Stylisticルールによるコードフォーマット
+- 📦 TypeScript、Vue.js、Reactに対応
+- ⚛️ React / Next.js プロジェクトのサポート
+- 🎨 Vue / Nuxt プロジェクトのサポート
+- 🧪 Vitestテストフレームワークのサポート
+- ✨ Stylisticルールによるコードフォーマット
 - 📥 Import文の整理とソート
 - ⚡ ESLint Flat Config対応
-- 🔧 カスタマイズ可能な設定
+- 🔧 機能ごとの柔軟な有効化設定
 
 ## インストール
 
@@ -33,15 +36,14 @@ pnpm add -D jsr:@sumomo015/eslint-config eslint typescript
 
 ## 使い方
 
-### TypeScript専用プロジェクト
-
 `eslint.config.mjs`または`eslint.config.ts`を作成:
+
+### TypeScriptプロジェクト
 
 ```typescript
 import { defineESLintConfig } from '@sumomo015/eslint-config'
 
 export default defineESLintConfig({
-  mode: 'TS_ONLY',
   tsconfigRootDir: import.meta.dirname,
 })
 ```
@@ -52,21 +54,69 @@ export default defineESLintConfig({
 import { defineESLintConfig } from '@sumomo015/eslint-config'
 
 export default defineESLintConfig({
-  mode: 'VUE_WITH_TS',
+  feature: {
+    vue: { enabled: true },
+    vitest: { enabled: true },
+  },
+  tsconfigRootDir: import.meta.dirname,
+})
+```
+
+### Nuxtプロジェクト
+
+```typescript
+import { defineESLintConfig } from '@sumomo015/eslint-config'
+
+export default defineESLintConfig({
+  feature: {
+    vue: { enabled: true, nuxt: true },
+    vitest: { enabled: true },
+  },
+  tsconfigRootDir: import.meta.dirname,
+})
+```
+
+### React + TypeScriptプロジェクト
+
+```typescript
+import { defineESLintConfig } from '@sumomo015/eslint-config'
+
+export default defineESLintConfig({
+  feature: {
+    react: { enabled: true },
+    vitest: { enabled: true },
+  },
+  tsconfigRootDir: import.meta.dirname,
+})
+```
+
+### Next.jsプロジェクト
+
+```typescript
+import { defineESLintConfig } from '@sumomo015/eslint-config'
+
+export default defineESLintConfig({
+  feature: {
+    react: { enabled: true, next: true },
+    vitest: { enabled: true },
+  },
   tsconfigRootDir: import.meta.dirname,
 })
 ```
 
 ## オプション
 
-### ESLintConfigsOptions
+### Options
 
-| プロパティ        | 型                           | 必須 | 説明                                                               |
-| ----------------- | ---------------------------- | ---- | ------------------------------------------------------------------ |
-| `mode`            | `'TS_ONLY' \| 'VUE_WITH_TS'` | ✅   | 使用するモード。TypeScript専用またはVue + TypeScript               |
-| `tsconfigRootDir` | `string`                     | ✅   | `tsconfig.json`があるルートディレクトリのパス                      |
-| `internalRegex`   | `string`                     | ❌   | 内部パッケージを識別するための正規表現パターン(import順序の制御用) |
-| `ignores`         | `string[]`                   | ❌   | ESLintで無視するファイル/ディレクトリのパターン                    |
+| プロパティ        | 型                                     | 必須 | 説明                                                               |
+| ----------------- | -------------------------------------- | ---- | ------------------------------------------------------------------ |
+| `feature`         | `object`                               | ❌   | 機能ごとの有効化設定                                               |
+| `feature.vue`     | `{ enabled: boolean, nuxt?: boolean }` | ❌   | Vue.js/Nuxtサポート設定                                            |
+| `feature.react`   | `{ enabled: boolean, next?: boolean }` | ❌   | React/Next.jsサポート設定                                          |
+| `feature.vitest`  | `{ enabled: boolean }`                 | ❌   | Vitestテストフレームワークサポート設定                             |
+| `tsconfigRootDir` | `string`                               | ✅   | `tsconfig.json`があるルートディレクトリのパス                      |
+| `internalRegex`   | `string`                               | ❌   | 内部パッケージを識別するための正規表現パターン(import順序の制御用) |
+| `ignores`         | `string[]`                             | ❌   | ESLintで無視するファイル/ディレクトリのパターン                    |
 
 ### 例: カスタムignoresとinternalRegexを使用
 
@@ -74,7 +124,6 @@ export default defineESLintConfig({
 import { defineESLintConfig } from '@sumomo015/eslint-config'
 
 export default defineESLintConfig({
-  mode: 'TS_ONLY',
   tsconfigRootDir: import.meta.dirname,
   internalRegex: '^@mycompany/',
   ignores: ['dist/**', 'build/**', '.cache/**'],
@@ -90,7 +139,6 @@ import { defineESLintConfig } from '@sumomo015/eslint-config'
 
 export default defineESLintConfig(
   {
-    mode: 'TS_ONLY',
     tsconfigRootDir: import.meta.dirname,
   },
   {
@@ -108,7 +156,11 @@ export default defineESLintConfig(
 
 - **JavaScript**: 基本的なJavaScriptのルール
 - **TypeScript**: TypeScript固有のルールと型チェック
-- **Vue**: Vue.js固有のルール(VUE_WITH_TSモード時のみ)
+- **Vue**: Vue.js固有のルール（有効化時のみ）
+- **Nuxt**: Nuxt.js固有のルール（Nuxtを有効化時のみ）
+- **React**: React固有のルールとReact Hooks（有効化時のみ）
+- **Next.js**: Next.js固有のルールとCore Web Vitals（Next.jsを有効化時のみ）
+- **Vitest**: Vitestテストフレームワークのルール（有効化時のみ）
 - **Import**: import文の整理とソート
 - **Stylistic**: コードスタイルとフォーマットのルール
 
@@ -132,3 +184,8 @@ export default defineESLintConfig(
 - `eslint-plugin-import-x`
 - `eslint-plugin-vue`
 - `vue-eslint-parser`
+- `@nuxt/eslint-plugin`
+- `@eslint-react/eslint-plugin`
+- `eslint-plugin-react-hooks`
+- `@next/eslint-plugin-next`
+- `@vitest/eslint-plugin`

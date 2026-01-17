@@ -1,9 +1,11 @@
 import { defineESLintConfig } from './src'
 
-import type { Config } from './src/types'
+import type { RawConfig } from './src'
 
-const config: Config[] = defineESLintConfig({
-  mode: 'TS_ONLY',
+const config: RawConfig[] = defineESLintConfig({
+  feature: {
+    vitest: { enabled: true },
+  },
   tsconfigRootDir: import.meta.dirname,
   ignores: ['dist/', 'coverage/'],
 })

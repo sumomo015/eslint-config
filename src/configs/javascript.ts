@@ -2,9 +2,9 @@ import eslintJS from '@eslint/js'
 
 import { cleanConfigs } from '../utils/clean'
 
-import type { Config } from '../types'
+import type { RawConfig } from '../types'
 
-function getJavascriptConfigs(): Config[] {
+function getJavascriptConfigs(): RawConfig[] {
   return cleanConfigs([{
     ...eslintJS.configs.recommended,
     name: 'js/recommended',

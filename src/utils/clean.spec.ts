@@ -2,11 +2,11 @@ import { describe, it, expect } from 'vitest'
 
 import { cleanConfig, cleanConfigs } from './clean'
 
-import type { Config } from '../types'
+import type { RawConfig } from '../types'
 
 describe('cleanConfig', () => {
   it('設定オブジェクトから指定されたプロパティを削除するべき', () => {
-    const input: Config = {
+    const input: RawConfig = {
       files: ['file1.js', 'file2.js'],
       ignores: ['ignore1', 'ignore2'],
       languageOptions: { ecmaVersion: 2021 },
@@ -19,7 +19,7 @@ describe('cleanConfig', () => {
   })
 
   it('削除可能なプロパティのみが存在する場合、空のオブジェクトを返すべき', () => {
-    const input: Config = {
+    const input: RawConfig = {
       files: ['file1.js'],
       ignores: ['ignore1'],
       languageOptions: { ecmaVersion: 2021 },
@@ -29,7 +29,7 @@ describe('cleanConfig', () => {
   })
 
   it('削除可能なプロパティが存在しない場合、同じオブジェクトを返すべき', () => {
-    const input: Config = {
+    const input: RawConfig = {
       name: 'test',
       rules: {
         'no-unused-vars': 'error',
@@ -47,7 +47,7 @@ describe('cleanConfig', () => {
 
 describe('cleanConfigs', () => {
   it('設定オブジェクトの配列をクリーンアップするべき', () => {
-    const input: Config[] = [
+    const input: RawConfig[] = [
       {
         files: ['file1.js'],
         ignores: ['ignore1'],
@@ -69,13 +69,13 @@ describe('cleanConfigs', () => {
   })
 
   it('入力配列が空の場合、空の配列を返すべき', () => {
-    const input: Config[] = []
-    const expected: Config[] = []
+    const input: RawConfig[] = []
+    const expected: RawConfig[] = []
     expect(cleanConfigs(input)).toEqual(expected)
   })
 
   it('混在したオブジェクトを含む配列を正しく処理するべき', () => {
-    const input: Config[] = [
+    const input: RawConfig[] = [
       {
         files: ['file1.js'],
         ignores: ['ignore1'],
