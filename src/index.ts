@@ -2,36 +2,14 @@ import {
   getJavascriptConfigs,
   getTypescriptConfigs,
   getVueConfigs,
+  getReactConfigs,
   getImportConfigs,
   getStylisticConfigs,
   getLanguageConfigs,
+  getVitestConfigs,
 } from './configs'
 
-import type { Config } from './types'
-
-/**
- * ESLint設定のオプション
- */
-interface ESLintConfigsOptions {
-  /**
-   * 設定モード
-   * - `TS_ONLY`: TypeScriptのみ
-   * - `VUE_WITH_TS`: Vue.js with TypeScript
-   */
-  mode: 'TS_ONLY' | 'VUE_WITH_TS'
-  /**
-   * TypeScript設定ファイルのルートディレクトリ
-   */
-  tsconfigRootDir: string
-  /**
-   * 内部モジュールを識別するための正規表現パターン
-   */
-  internalRegex?: string
-  /**
-   * 無視するファイルパターンの配列
-   */
-  ignores?: string[]
-}
+import type { RawConfig, Options } from './types'
 
 /**
  * ESLint設定を定義する
@@ -43,23 +21,30 @@ interface ESLintConfigsOptions {
  * @example
  * ```typescript
  * defineESLintConfig({
- *   mode: 'TS_ONLY',
+ *   feature: {
+ *     vue: { enabled: true, nuxt: true },
+ *     react: { enabled: true, next: true },
+ *     vitest: { enabled: true },
+ *   },
  *   tsconfigRootDir: __dirname,
  *   internalRegex: '^@myapp/',
  *   ignores: ['dist', 'node_modules']
  * })
  * ```
  */
-function defineESLintConfig(options: ESLintConfigsOptions, ...configs: Config[]): Config[] {
-  const { mode, tsconfigRootDir, internalRegex, ignores } = options
-  const isNeedVue = mode === 'VUE_WITH_TS'
+function defineESLintConfig(options: Options, ...configs: RawConfig[]): RawConfig[] {
+  const { feature, tsconfigRootDir, internalRegex, ignores } = options
+
+  const vue = feature?.vue?.enabled === true
 
   return [
-    ...getLanguageConfigs({ mode, tsconfigRootDir, ignores }),
+    ...getLanguageConfigs({ vue, tsconfigRootDir, ignores }),
     ...getJavascriptConfigs(),
     ...getTypescriptConfigs(),
-    ...(isNeedVue ? getVueConfigs() : []),
+    ...getVueConfigs(feature?.vue),
+    ...getReactConfigs(feature?.react),
     ...getImportConfigs({ internalRegex: internalRegex }),
+    ...getVitestConfigs(feature?.vitest),
     ...getStylisticConfigs(),
     ...configs,
   ]
@@ -69,4 +54,4 @@ export {
   defineESLintConfig,
 }
 
-export type { ESLintConfigsOptions, Config }
+export type * from './types'

@@ -1,16 +1,19 @@
 import eslintParserTS from '@typescript-eslint/parser'
 import eslintParserVue from 'vue-eslint-parser'
 
-import type { Config } from '../types'
+import type { RawConfig } from '../types'
 
 interface LanguageConfigsOptions {
-  mode: 'TS_ONLY' | 'VUE_WITH_TS'
   tsconfigRootDir: string
+  vue?: boolean
   ignores?: string[]
 }
 
-function getLanguageConfigs(options: LanguageConfigsOptions): Config[] {
-  const result: (Config | undefined)[] = [
+const GLOBAL_FILES_PATTERN = ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx']
+const GLOBAL_FILES_PATTERN_VUE = GLOBAL_FILES_PATTERN.concat(['**/*.vue'])
+
+function getLanguageConfigs(options: LanguageConfigsOptions): RawConfig[] {
+  const result: (RawConfig | undefined)[] = [
     _getFilesConfig(options),
     options.ignores ? _getIgnoresConfig(options.ignores) : undefined,
     _getLanguageOptionsConfig(options),
@@ -19,26 +22,27 @@ function getLanguageConfigs(options: LanguageConfigsOptions): Config[] {
   return result.filter(config => !!config)
 }
 
-function _getFilesConfig(options: LanguageConfigsOptions): Config {
-  const { mode } = options
+function _getFilesConfig(options: LanguageConfigsOptions): RawConfig {
+  const { vue } = options
   return {
     name: 'global/files',
-    files: mode === 'TS_ONLY' ? ['**/*.ts'] : ['**/*.ts', '**/*.vue'],
+    files: vue ? GLOBAL_FILES_PATTERN_VUE : GLOBAL_FILES_PATTERN,
   }
 }
 
-function _getIgnoresConfig(ignores: string[]): Config {
+function _getIgnoresConfig(ignores: string[]): RawConfig {
   return {
     name: 'global/ignores',
     ignores,
   }
 }
 
-function _getLanguageOptionsConfig(options: LanguageConfigsOptions): Config {
+function _getLanguageOptionsConfig(options: LanguageConfigsOptions): RawConfig {
   const name = 'global/language-options'
 
-  const { mode, tsconfigRootDir } = options
-  if (mode === 'TS_ONLY') {
+  const { vue, tsconfigRootDir } = options
+
+  if (!vue) {
     return {
       name,
       languageOptions: {
@@ -51,27 +55,25 @@ function _getLanguageOptionsConfig(options: LanguageConfigsOptions): Config {
       },
     }
   }
-  else {
-    return {
-      name,
-      languageOptions: {
-        parser: eslintParserVue,
-        parserOptions: {
-          parser: eslintParserTS,
-          sourceType: 'module',
-          extraFileExtensions: ['.vue'],
-          projectService: true,
-          tsconfigRootDir: tsconfigRootDir,
-        },
+
+  return {
+    name,
+    languageOptions: {
+      parser: eslintParserVue,
+      parserOptions: {
+        parser: eslintParserTS,
+        sourceType: 'module',
+        extraFileExtensions: ['.vue'],
+        projectService: true,
+        tsconfigRootDir: tsconfigRootDir,
       },
-    }
+    },
+
   }
 }
 
 export {
   getLanguageConfigs,
-  _getFilesConfig,
-  _getLanguageOptionsConfig,
 }
 
 export type {
