@@ -2,7 +2,7 @@
   "name": "@sumomo015/eslint-config",
   "version": "2.0.0",
   "type": "module",
-  "packageManager": "pnpm@10.28.0+sha512.05df71d1421f21399e053fde567cea34d446fa02c76571441bfc1c7956e98e363088982d940465fd34480d4d90a0668bc12362f8aa88000a64e83d0b0e47be48",
+  "packageManager": "pnpm@10.28.2+sha512.41872f037ad22f7348e3b1debbaf7e867cfd448f2726d9cf74c08f19507c31d2c8e7a11525b983febc2df640b5438dee6023ebb1f84ed43cc2d654d2bc326264",
   "author": "sumomo015",
   "description": "Sumomo015's ESLint config",
   "license": "GPL-3.0-only",
@@ -53,9 +53,9 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@eslint-react/eslint-plugin": "^2.7.4",
+    "@eslint-react/eslint-plugin": "^2.8.1",
     "@eslint/js": "^9.39.2",
-    "@next/eslint-plugin-next": "^16.1.5",
+    "@next/eslint-plugin-next": "^16.1.6",
     "@nuxt/eslint-plugin": "^1.13.0",
     "@stylistic/eslint-plugin": "^5.7.1",
     "@typescript-eslint/parser": "^8.54.0",
