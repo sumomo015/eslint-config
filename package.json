@@ -2,7 +2,7 @@
   "name": "@sumomo015/eslint-config",
   "version": "2.0.0",
   "type": "module",
-  "packageManager": "pnpm@10.29.1+sha512.48dae233635a645768a3028d19545cacc1688639eeb1f3734e42d6d6b971afbf22aa1ac9af52a173d9c3a20c15857cfa400f19994d79a2f626fcc73fccda9bbc",
+  "packageManager": "pnpm@10.30.1+sha512.3590e550d5384caa39bd5c7c739f72270234b2f6059e13018f975c313b1eb9fefcc09714048765d4d9efe961382c312e624572c0420762bdc5d5940cdf9be73a",
   "author": "sumomo015",
   "description": "Sumomo015's ESLint config",
   "license": "GPL-3.0-only",
@@ -37,10 +37,10 @@
     "singleQuote": true
   },
   "devDependencies": {
-    "@types/node": "^24.10.12",
+    "@types/node": "^24.10.13",
     "@vitest/coverage-v8": "^4.0.18",
     "@vitest/ui": "^4.0.18",
-    "eslint": "^9.39.2",
+    "eslint": "^9.39.3",
     "jiti": "^2.6.1",
     "prettier": "^3.8.1",
     "tsdown": "^0.20.3",
@@ -53,17 +53,17 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@eslint-react/eslint-plugin": "^2.12.2",
-    "@eslint/js": "^9.39.2",
+    "@eslint-react/eslint-plugin": "^2.13.0",
+    "@eslint/js": "^9.39.3",
     "@next/eslint-plugin-next": "^16.1.6",
-    "@nuxt/eslint-plugin": "^1.14.0",
-    "@stylistic/eslint-plugin": "^5.7.1",
-    "@typescript-eslint/parser": "^8.54.0",
-    "@vitest/eslint-plugin": "^1.6.6",
+    "@nuxt/eslint-plugin": "^1.15.1",
+    "@stylistic/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^8.56.0",
+    "@vitest/eslint-plugin": "^1.6.9",
     "eslint-plugin-import-x": "^4.16.1",
     "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-vue": "^10.7.0",
-    "typescript-eslint": "^8.54.0",
-    "vue-eslint-parser": "^10.2.0"
+    "eslint-plugin-vue": "^10.8.0",
+    "typescript-eslint": "^8.56.0",
+    "vue-eslint-parser": "^10.4.0"
   }
 }
