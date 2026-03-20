@@ -1,8 +1,8 @@
 import { defineConfig } from 'vitest/config'
 
-import type { UserConfig } from 'vite'
+import type { ViteUserConfig } from 'vitest/config'
 
-const config: UserConfig = defineConfig({
+const config: ViteUserConfig = defineConfig({
   test: {
     coverage: {
       provider: 'v8',
