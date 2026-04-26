@@ -1,6 +1,6 @@
 import eslintImport from 'eslint-plugin-import-x'
 
-import type { RawConfig, RawPlugins } from '../types'
+import type { RawConfig } from '../types'
 
 interface ImportConfigsOptions {
   internalRegex?: string
@@ -10,7 +10,7 @@ function getImportConfigs(options?: ImportConfigsOptions): RawConfig[] {
   return [
     {
       name: 'import-x/recommended',
-      plugins: eslintImport.flatConfigs.recommended.plugins as RawPlugins,
+      plugins: eslintImport.flatConfigs.recommended.plugins,
       rules: {
         'import-x/no-empty-named-blocks': 'warn',
         'import-x/no-mutable-exports': 'error',
