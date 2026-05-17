@@ -166,14 +166,14 @@ export default defineESLintConfig(
 
 ## 必要な環境
 
-- **Node.js**: >=22.0.0
+- **Node.js**: >=24.0.0
 
 ## 依存関係
 
 ### Peer Dependencies
 
-- `eslint` ^9.0.0
-- `typescript` ^5.0.0
+- `eslint` ^10.0.0
+- `typescript` ^6.0.0
 
 ### 主要な依存パッケージ
 

@@ -17,8 +17,6 @@ function getTypescriptConfigs(): RawConfig[] {
         '@typescript-eslint/explicit-member-accessibility': 'warn',
         '@typescript-eslint/method-signature-style': 'warn',
         '@typescript-eslint/no-import-type-side-effects': 'warn',
-        'no-magic-numbers': 'off',
-        '@typescript-eslint/no-magic-numbers': 'warn',
         '@typescript-eslint/promise-function-async': 'warn',
       },
     },
