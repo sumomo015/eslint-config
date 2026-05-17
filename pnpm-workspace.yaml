@@ -5,4 +5,4 @@ trustPolicy: no-downgrade
 trustPolicyExclude:
   - semver@6.3.1
 allowBuilds:
-  unrs-resolver: true
+  unrs-resolver: false
