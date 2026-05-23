@@ -5,12 +5,12 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "v11.1.2",
+      "version": "^11.2.2",
       "onFail": "error"
     },
     "runtime": {
       "name": "node",
-      "version": "^24.15.0",
+      "version": "^24.16.0",
       "onFail": "download"
     }
   },
@@ -49,31 +49,31 @@
   },
   "devDependencies": {
     "@types/node": "^24.12.4",
-    "@vitest/coverage-v8": "^4.1.6",
-    "@vitest/ui": "^4.1.6",
+    "@vitest/coverage-v8": "^4.1.7",
+    "@vitest/ui": "^4.1.7",
     "eslint": "^10.4.0",
     "jiti": "^2.7.0",
     "prettier": "^3.8.3",
     "tsdown": "^0.22.0",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.6"
+    "vitest": "^4.1.7"
   },
   "peerDependencies": {
     "eslint": "^10.0.0",
     "typescript": "^6.0.0"
   },
   "dependencies": {
-    "@eslint-react/eslint-plugin": "^5.7.9",
+    "@eslint-react/eslint-plugin": "^5.8.4",
     "@eslint/js": "^10.0.1",
     "@next/eslint-plugin-next": "^16.2.6",
     "@nuxt/eslint-plugin": "^1.15.2",
     "@stylistic/eslint-plugin": "^5.10.0",
-    "@typescript-eslint/parser": "^8.59.3",
+    "@typescript-eslint/parser": "^8.59.4",
     "@vitest/eslint-plugin": "^1.6.17",
     "eslint-plugin-import-x": "^4.16.2",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-vue": "^10.9.1",
-    "typescript-eslint": "^8.59.3",
+    "typescript-eslint": "^8.59.4",
     "vue-eslint-parser": "^10.4.0"
   }
 }
